@@ -20,7 +20,7 @@ The name and ID of all the students who got the highest grade
 The name and ID of all the students who got the lowest grade
 Total number of students failed in the unit (assuming 50% is the pass mark)
 
-3. Expand Exercise 6 in Lab 5: this time, the information for each student must be stored in a dictionary.
+3. Expand Exercise 8 in Lab 5: this time, the information for each student must be stored in a dictionary.
 
 4. Write a program that takes the lyrics of a song as a multi-line string and report the frequency of words used in the lyrics. Finally displays the list of words with the highest frequency and the list of words with the lowest frequency.
 
