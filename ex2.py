@@ -1,6 +1,6 @@
 # I import the neccessary functions I made and stored in functions.py.
 # Please view functions.py to go through the functions
-from functions import Total, printDetails, AHL, topper_lowest
+from functions import Total, printDetails, AHL, topper_lowest, failure
 
 
 ''' __________Main Program_________ '''
@@ -79,12 +79,14 @@ while True:
     
     # Use the imported AHL function and print out average, highest marks and lowest marks
     (Average, Highest_marks, Lowest_marks) = AHL(student_details)
-    print(f"Average Marks in Class is: {Average}")
-    print(f"Highest Marks in Class is: {Highest_marks}")
-    print(f"Lowest Marks in Class is: {Lowest_marks}" )
+    print(f"Average Marks in unit is: {Average}")
+    print(f"Highest Marks in unit is: {Highest_marks}")
+    print(f"Lowest Marks in unit is: {Lowest_marks}" )
+    print()
     
     (topper_name, topper_ID, lowest_name, lowest_ID) = topper_lowest(student_details)
-    print(f"the highest scorer of the class is {topper_name} with Student_ID number {topper_ID}")
-    print(f"the lowest scorer of the class is {lowest_name} with Student_ID number {lowest_ID}")
-    
+    print(f"the highest scorer of the unit is {topper_name} with Student_ID number {topper_ID}")
+    print(f"the lowest scorer of the unit is {lowest_name} with Student_ID number {lowest_ID}")
+    print()
 
+    print(f"{failure(student_details)} student/s have failed the unit")

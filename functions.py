@@ -82,11 +82,24 @@ def topper_lowest(studentData):
             high = value['UnitMark']
             low = value['UnitMark']
             topper_name = value['Name']
-            topper_ID = value['StudentId']
+            topper_ID = value['StudentID']
 
         if value['UnitMark'] <= low:
             low = value['UnitMark']
             lowest_name = value['Name']
-            lowest_ID = value['StudentId']
+            lowest_ID = value['StudentID']
         
     return topper_name, topper_ID, lowest_name, lowest_ID
+
+def failure(studentData):
+
+    ''' this function will take the student data dictionary and iterate through letter grades in each
+    inner dictionary to find people with letter grade N and calculate how many have got N. '''
+
+    fails = 0
+
+    for value in studentData.values():
+        if value['Grade'] == "N":
+            fails += 1
+
+    return fails
