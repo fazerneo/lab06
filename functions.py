@@ -37,3 +37,56 @@ def printDetails(studentData):
         print()
 
     return
+
+
+''' _________Exercise 2 functions________ '''
+
+def AHL(studentData):
+
+    ''' this function will take the dictionary of student data as its parameter and
+    calculate the average, lowest and highest marks, and return the same'''
+
+    val = 0
+    high = 0
+
+    for value in studentData.values():
+        val = val + value['UnitMark']
+        
+        if value['UnitMark'] >= high:
+            high = value['UnitMark']
+            low = value['UnitMark']
+
+        if value['UnitMark'] <= low:
+            low = value['UnitMark']
+
+
+    Average = val / len(studentData)
+
+    return Average, high, low
+            
+def topper_lowest(studentData):
+
+    ''' this function will use the student data dictionary as it's parameter and calculates highest and
+    lowest grades in each iteration and then finds the name and id of topper and lowest scorer and returns
+    the same '''
+
+    high = 0
+    topper_name = ""
+    topper_ID = ""
+    lowest_name = ""
+    lowest_ID = ""
+
+    for value in studentData.values():
+                
+        if value['UnitMark'] >= high:
+            high = value['UnitMark']
+            low = value['UnitMark']
+            topper_name = value['Name']
+            topper_ID = value['StudentId']
+
+        if value['UnitMark'] <= low:
+            low = value['UnitMark']
+            lowest_name = value['Name']
+            lowest_ID = value['StudentId']
+        
+    return topper_name, topper_ID, lowest_name, lowest_ID
