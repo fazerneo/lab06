@@ -89,4 +89,4 @@ while True:
     print(f"the lowest scorer of the unit is {lowest_name} with Student_ID number {lowest_ID}")
     print()
 
-    print(f"{failure(student_details)} student/s have failed the unit")
+    print(f"{failure(student_details)} failed the unit")

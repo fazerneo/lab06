@@ -102,4 +102,29 @@ def failure(studentData):
         if value['Grade'] == "N":
             fails += 1
 
-    return fails
+    if fails == 1:
+        total_fails = str(fails) + " student has"
+    elif fails < 1 or fails > 1:
+        total_fails = str(fails) + " students have"
+
+    return total_fails
+
+''' __________Exercise 3 functions__________ '''
+
+def main_menu():
+
+    ''' this is the main menu for the student management system '''
+
+    print("Student Management System")
+    print("1. Add student details")
+    print("2. Search a particular student")
+    print("3. Delete a particular student")
+    print("4. Display all dean's list students (students with GPA >= 3.75)")
+    print("5. Display all students detail in a user-friendly manner")
+    print("6. Exit Program")
+    print("Note: Please keep in mind that this system is command line based")
+    print()
+    user_input = input("Please select an option between 1 and 5 to get started: ")
+    
+    return user_input
+
