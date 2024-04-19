@@ -1,22 +1,27 @@
 # I import the neccessary functions I made and stored in functions.py.
 # Please view functions.py to go through the functions
-from functions import Letter_Grader, Total
+from functions import Total, printDetails
 
 
-''' Main Program '''
-# I initialize two empty lists, one to hold the student details and one to hold only student ids so that deuplicate entries are not made
-student_details = []
+''' __________Main Program_________ '''
+
+# I initialize two empty lists, one to hold the student details and one to hold only student ids
+# so that deuplicate entries are not made
+student_details = {}
 student_Ids = []
 
 # I use a while loop to continuously iterate until the break condition is met
 while True:
+    
+    Student_name = input("Enter Student name: ")
+    
     # I take student ID as input from user and turn it into an int
-    Student_Id = input("Enter Student ID: ")
+    Student_Id = input("Enter Student ID (Between 1000 & 2000): ")
     Student_Id = int(Student_Id)
     
-    # If the student ID is negative, zero or already exists in student_Ids list, the loop is broken
+    # If the student ID is not in the range 1000 and 2000 or student id duplicated, the loop is broken
     # If the break condition is met then an error message is printed to the screen before break
-    if Student_Id <= 0 or Student_Id in student_Ids:
+    if Student_Id not in range(1000, 2001) or Student_Id in student_Ids:
         print("\nError: Invalid Student ID")
         break
     
@@ -51,15 +56,23 @@ while True:
         if Final in range(0, 101):
             break
     
-    # We use the imported total funtion to find the total marks and store them in a variable
-    # We then use the imported letter grader function to find the corresponding letter grade of the total marks
-    Total_Marks = Total(Quiz1, Quiz2, Final)
-    Letter_Grade = Letter_Grader(Total_Marks)
+    # We use the imported total funtion to find the total marks and letter grade and store them in variables
+    (Total_Marks, Letter_Grade) = Total(Quiz1, Quiz2, Final)
     
-    # We then append the details about the student in a list form to the student_details list, which holds all student data
-    student_details.append([Student_Id, Quiz1, Quiz2, Final, Total_Marks, Letter_Grade])
     
-    # We print out the student data to be viewed
+    # We then append the details about the student in a dictionary form to the student_details list, 
+    # which holds all student data. The key we use for each chunk of data (in dictionary form) is student ID.
+    student_details[Student_Id] = {
+        "Name" : Student_name,
+        "StudentID": Student_Id,
+        "Q1" : Quiz1,
+        "Q2:" : Quiz2,
+        "Final" : Final, 
+        "UnitMark" : Total_Marks, 
+        "Grade" : Letter_Grade
+    }
+    
+    # We print out the student data to be viewed by calling the imported printDetails function with 
+    # student_details dictionary as parameter
     print()
-    print(student_details)      
-    print()
+    printDetails(student_details)
