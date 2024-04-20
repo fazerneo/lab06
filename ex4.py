@@ -1,3 +1,6 @@
+from functions import frequency, highAndlow
+
+# Paste the lyrics into the lower variable
 lyrics = ''' Road shimmer wigglin' the vision
 Heat, heat waves, I'm swimmin' in a mirror
 Road shimmer wigglin' the vision
@@ -58,45 +61,12 @@ Road shimmer wigglin' the vision
 Heat, heat waves, I'm swimmin' in a mirror
 Road shimmer wigglin' the vision
 Heat, heat waves, I'm swimmin' in a mirror '''
-        
+
+# Split the lyrics into a list and use that to call imported frequency function
+# the dictionary returned from frequency is used to call imported highAndlow, which returns -
+# the highest frequency words and frequency and vice versa for lowest frequency
 list = lyrics.split()
-
-def frequency(song_lyrics):
-    
-    dict = {}
-
-    for word in song_lyrics:
-        if word in dict:
-            dict[word] += 1
-        else:
-            dict[word] = 1
-    
-    return dict
-
 dict = frequency(list)
-
-
-def highAndlow(frequency_dict):
-
-    high = []
-    low = []
-    tempHigh = []
-    tempLow = []
-    highFreq = max(frequency_dict.values())
-    lowFreq = min(frequency_dict.values())
-
-    for key, value in frequency_dict.items():
-        
-        if value == highFreq:
-            if key not in tempHigh:
-                tempHigh.append(key)
-
-        if value == lowFreq:
-            if key not in tempLow:
-                tempLow.append(key)
-    
-    return [tempHigh, highFreq], [tempLow, lowFreq]
-
 (high, low) = highAndlow(dict)
 
 print(f"words with highest frequency \n{high}")

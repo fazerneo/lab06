@@ -128,3 +128,38 @@ def main_menu():
     
     return user_input
 
+''' __________Exercise 4 functions__________ '''
+
+def frequency(song_lyrics):
+    
+    ''' This function will take a list of words from the lyrics as its parameter and find the
+     frequency of each word and return a dictionary with the words as key and its frequency as value. '''
+
+    dict = {}
+
+    for word in song_lyrics:
+        if word in dict:
+            dict[word] += 1
+        else:
+            dict[word] = 1
+    
+    return dict
+
+def highAndlow(frequency_dict):
+
+    tempHigh = []
+    tempLow = []
+    highFreq = max(frequency_dict.values())
+    lowFreq = min(frequency_dict.values())
+
+    for key, value in frequency_dict.items():
+        
+        if value == highFreq:
+            if key not in tempHigh:
+                tempHigh.append(key)
+
+        if value == lowFreq:
+            if key not in tempLow:
+                tempLow.append(key)
+    
+    return [tempHigh, highFreq], [tempLow, lowFreq]
