@@ -109,6 +109,7 @@ def failure(studentData):
 
     return total_fails
 
+
 ''' __________Exercise 3 functions__________ '''
 
 def main_menu():
@@ -127,6 +128,7 @@ def main_menu():
     user_input = input("Please select an option between 1 and 5 to get started: ")
     
     return user_input
+
 
 ''' __________Exercise 4 functions__________ '''
 
