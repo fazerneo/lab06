@@ -40,7 +40,8 @@ while True:
         }
         
         print()
-        print(student_data) 
+        print('Data Add Successful')
+        print() 
     
     ''' Searching for a student using their name '''
 
@@ -48,35 +49,48 @@ while True:
         search = input("Please enter the name of the student you want to search for: ")
         for i in student_data.values():
             if i['student_name'] == search:
+                print()
                 print(f"The student data is as below: \n{i}")
-                
+        print()        
 
     ''' Deleting a Student's record '''
 
     if user_input == 3:
         delete = input("Please enter the name of the student whose details you want to delete: ")
-        for i in student_data.values():
-            if i['student_name'] == delete:
-                del i
-                print(student_data)
-                
+        for key, value in student_data.copy().items():
+            if value.get('student_name') == delete:
+                del student_data[key]
+
+        print()
+        print('Data Delete Successful')
+        print()
             
     ''' Viewing the Dean's List '''
 
     if user_input == 4:
         for i in student_data.values():
             if i['GPA'] >= 3.75:
+                print()
                 deans_list.append(i['student_name'])
                 print(f"the students in the dean's list are \n{deans_list}")
-                
+                print()
+
     ''' Viewing all data '''
 
     if user_input == 5:
+        num = 0
+        print()
         for i in student_data.values():
-            print(f"Accumulated data \n{i}")
+            num +=1
+            print(f"Data entry {num} \n{i}")
+            print()
+
+
+    ''' Exit Program '''
 
     if user_input == 6:
         print()
         print("Thank you for visiting")
+        print()
         break
         
